@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Blog Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100 font-sans antialised">
+    <!--Navbar-->
+    <nav class="bg-blue-600 p-4 text-white flex justify-between"> 
+        <div class="text-3xl font-bold">
+            <h1>AI Blog Generator</h1>
+        </div>
+        <div class="text-white hover:underline">
+            <a href="#">Logout</a>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <!-- Main -->
+     <div class="flex-grow container mx-auto mt-10 px-4 sm:px-0">
+        <div class="mx-w-3xl mx-auto bg-white rounded-lg p-6 transition-transform transform hover:scale-105 flex flex-col">
+            <!-- introduction -->
+             <div class="text-center ">
+                <h2 class="text-2xl font-semibold mb-4">
+                    Welcome to the AI Blog Generator
+                </h2>
+                <p class="text-gray-700">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur aspernatur modi, dignissimos laborum, eaque pariatur aliquam dolorem aliquid ab quo nemo, consequatur iusto omnis animi numquam. Vitae nam aperiam quia!
+                </p>
+             </div>
+             <br>
+             <!-- Enter Youtube Link -->
+              <div>
+                <h2 class="text-xl font-semibold mb-4">
+                    Enter Youtube Link
+                </h2>
+                <div class="flex space-x-4">
+                    <input id="Youtube Link" type="url" placeholder="Paste Youtube Link..." class="flex-grow p-2 border-blue-400 rounded-l-md border border-blue-400">
+                    <button id="GenerateBlog" class="bg-blue-600 text-white px-4 py-2 rounded-r-md hover:bg-blue-700 transition-colors">Generate</button>
+                </div>
+              </div>
+              <br>
+              <!-- Blog Display Section-->
+              <section class="mt-10 flex-grow">
+                <h2 class="text-xl mb-4 font-semibold">
+                    Generated Blog
+                </h2>
+                <div id="blogContent" class="mt-2 text-gray-700 space-y-4">
+                    <!-- section loading -->
+                </div>
+              </section>
+        </div>
+     </div>
+     <footer class="text-center p-4 text-black-700 mt-6">
+        My First Attempt
+     </footer>
+</body>
+</html>
