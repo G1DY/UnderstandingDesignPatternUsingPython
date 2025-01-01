@@ -4,23 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Blog Generator</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    {% comment %} <script src="https://cdn.tailwindcss.com"></script> {% endcomment %}
+
+    <style>
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to { 
+                transform: rotate(360deg);
+            }
+        }
+         
+        
+         @-webkit-keyframes rotate {
+            from {
+                -webkit-transform: rotate(0deg);
+            }
+            to { 
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        .load {
+            width: 100px;
+            height: 100px;
+            margin: 110px auto 0;
+            border:solid 10px #8822aa;
+            border-radius: 50%;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+             -webkit-transition: all 0.5s ease-in;
+            -webkit-animation-name:             rotate; 
+            -webkit-animation-duration:         1.0s; 
+            -webkit-animation-iteration-count:  infinite;
+            -webkit-animation-timing-function: linear;
+                
+                 transition: all 0.5s ease-in;
+            animation-name:             rotate; 
+            animation-duration:         1.0s; 
+            animation-iteration-count:  infinite;
+            animation-timing-function: linear; 
+        }
+    </style>
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100 font-sans antialised">
     <!--Navbar-->
-    <nav class="bg-blue-600 p-4 text-white flex justify-between"> 
+    <nav class="bg-green-600 p-4 text-white flex justify-between"> 
         <div class="text-3xl font-bold">
             <h1>AI Blog Generator</h1>
         </div>
-        <div class="text-white hover:underline">
-            <a href="#">Logout</a>
+        <div class="text-white space-x-2 flex justify-between">
+            <a href="logout" class="text-white relative hover:underline after:absolute">Logout</a>
+            <br>
+            <a href="welcome" class="text-white relative hover:underline after:absolute">Welcome {{user.username}} </a>
+
         </div>
     </nav>
     <br>
     <br>
     <!-- Main -->
      <div class="flex-grow container mx-auto mt-10 px-4 sm:px-0">
-        <div class="mx-w-3xl mx-auto bg-white rounded-lg p-6 transition-transform transform hover:scale-105 flex flex-col">
+        <div class="max-w-3xl mx-auto bg-white rounded-lg p-6 transition-transform transform hover:scale-105 flex flex-col">
             <!-- introduction -->
              <div class="text-center ">
                 <h2 class="text-2xl font-semibold mb-4">

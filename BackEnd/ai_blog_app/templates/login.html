@@ -6,30 +6,38 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Login</title>
 </head>
-<body>
+<body class="bg-gray-100 font-sans antialiased">
     <!--Navbar-->
-    <nav class="bg-blue-600 p-4 text-white flex justify-between"> 
+    <nav class="bg-green-600 p-4 text-white flex justify-between"> 
         <div>
             <h1 class="text-3xl font-bold">AI Blog Generator</h1>
         </div>
         <div>
-            <a class="text-white hover:underline" href="#">Login</a>
-            <a class="text-white hover:underline" href="#">Sign Up</a>
+            <a href="login" class="text-white hover:underline" >Login</a>
+            <a href="signUp" class="text-white hover:underline" >Sign Up</a>
         </div>
     </nav>
     <!-- main content -->
-     <div class="flex item-center justify-center">
-        <div class="bg-white p-8 shadow-md rounded-lg mx-w-md w-full">
+     <div class="flex space-x-4 items-center justify-center h-screen">
+        <div class="bg-white p-8 shadow-md rounded-lg max-w-md w-full">
             <!-- login form -->
-             <form class="space-y-4">
+             <form class="space-y-4" method="POST" action="">
+                {% csrf_token %}
+
+                {% if error_message %}
+                    <div align="center" style="color: red;">
+                        <h2> {{ error_message }} </h2>
+                    </div>
+                {% endif %}
+
                 <h2 class="text-xl font-semibold">Login</h2>
                 <div>
-                    <label for="userName" class="block md-1 font-medium">UserName</label>
-                    <input id="userName" type="text" placeholder="Enter Your UserName..." class="w-full p-2 border rounded">
+                    <label for="username" class="block md-1 font-medium">UserName</label>
+                    <input id="username" name="username" type="text" placeholder="Enter Your UserName..." class="w-full p-2 border rounded">
                 </div>
                 <div>
-                    <label for="passWord" class="block md-1 font-medium">PassWord</label>
-                    <input id="passWord" type="text" placeholder="Enter Your PassWord..." class="w-full p-2 border rounded">
+                    <label for="password" class="block md-1 font-medium">PassWord</label>
+                    <input id="passWord" name="password" type="password" placeholder="Enter Your PassWord..." class="w-full p-2 border rounded">
                 </div>
                 <div>
                     <button type="submit" class="bg-blue-600 w-full text-white p-2 rounded hover:bg-blue-700">Login</button>
