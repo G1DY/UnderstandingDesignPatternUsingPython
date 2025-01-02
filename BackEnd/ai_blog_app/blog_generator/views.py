@@ -4,7 +4,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.conf import settings
 import json
+import os
+from pytube import YouTube
 
 # Create your views here.
 @login_required
@@ -21,6 +24,7 @@ def generate_blog(request):
         except(KeyError, json.JSONDecodeError):
             return JsonResponse({'error': 'Invalid data sent'}, status=400)
         # get yt title
+        title = yt_title
         # get transcript
         # use openAI to generate blog
         # save blog article to database
@@ -29,6 +33,24 @@ def generate_blog(request):
     else:
         return JsonResponse({'error': 'Invalid request method'}, status=405)
     return render(request)
+
+def yt_title(link):
+    yt = YouTube(link)
+    title = yt_title
+    return title
+
+def download_audio(link):
+    yt = YouTube(link)
+    video = yt.streams.filter(only_audio=True).first()
+    out_file = video.download(output_path=settings.MEDIA_ROOT)
+    base, ext = os.path.splittext(out_file)
+    new_file = base + '.mp3'
+    os.rename(out_file, new_file)
+    return new_file
+
+def get_transcription(link):
+    audio_file = download_audio(link)
+
 
 
 def user_login(request):
